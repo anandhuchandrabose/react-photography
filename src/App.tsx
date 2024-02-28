@@ -15,8 +15,12 @@ import Images from "./Images";
 function App() {
   // const [open, setOpen] = useState<boolean>(false);
   const [index, setIndex] = useState<number>(-1);
+  const handleAddImage = () => {
+    window.location.href = "admin.html";
+  };
   return (
     <>
+     <button onClick={handleAddImage}>Add Image</button>
       {/* <button onClick={() => setOpen(true)}>open Lightbox</button> */}
       <Images
         data={slides}
