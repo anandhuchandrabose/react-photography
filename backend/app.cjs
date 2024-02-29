@@ -1,13 +1,14 @@
-app.cjs
-
-
 const express = require('express');
 const multer = require('multer');
 const mysql = require('mysql');
 const fs = require('fs');
+const cors = require('cors'); 
 
 const app = express();
 const upload = multer({ dest: './' });
+
+// Enable CORS for all requests
+app.use(cors());
 
 // Create MySQL connection
 const connection = mysql.createConnection({
