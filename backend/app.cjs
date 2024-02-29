@@ -34,21 +34,24 @@ connection.connect((err) => {
     console.log("Switched to Admin database");
   });
 
-  // Create "images" table if it doesn't exist
+  // Change your images table schema to store image data
   connection.query(`CREATE TABLE IF NOT EXISTS images (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    filename VARCHAR(255) NOT NULL
+    name VARCHAR(255) NOT NULL,
+    image LONGBLOB NOT NULL
   )`, (error, results, fields) => {
     if (error) throw error;
     console.log("Images table created or already exists");
   });
 });
 
-// Handle file upload
+// Handle file upload to store image data
 app.post('/upload', upload.single('image'), (req, res) => {
-  const image = req.file.filename; // File name of the uploaded image
-  // Insert the image filename into the database
-  connection.query('INSERT INTO images (filename) VALUES (?)', [image], (error, results, fields) => {
+  const imageName = req.file.originalname;
+  const image = fs.readFileSync(req.file.path); // Read the uploaded image file
+
+  // Insert the image data into the database
+  connection.query('INSERT INTO images (name, image) VALUES (?, ?)', [imageName, image], (error, results, fields) => {
     if (error) throw error;
 
     // Delete the file after storing it in the database
@@ -58,6 +61,28 @@ app.post('/upload', upload.single('image'), (req, res) => {
     });
 
     res.send('Image uploaded and saved to database.');
+  });
+});
+
+// Add a new route to fetch all images from the database
+app.get('/images', (req, res) => {
+  connection.query('SELECT * FROM images', (error, results, fields) => {
+    if (error) throw error;
+    res.json(results); // Send the images data as JSON response
+  });
+});
+
+// Route to serve image by ID
+app.get('/image/:id', (req, res) => {
+  const imageId = req.params.id;
+  connection.query('SELECT * FROM images WHERE id = ?', [imageId], (error, results, fields) => {
+    if (error) throw error;
+    if (results.length === 0) {
+      return res.status(404).send('Image not found');
+    }
+    const imageData = results[0];
+    res.setHeader('Content-Type', 'image/jpeg');
+    res.send(imageData.image);
   });
 });
 

@@ -1,15 +1,14 @@
+// Admin.jsx
 import React, { useState } from 'react';
-import axios from 'axios'; 
-
-const BASE_URL = 'http://localhost:3000'; // Change this to your server's base URL
-
+import axios from 'axios';
+import ImageGallery from './ImageGallery'; 
+import BASE_URL from './config';
 
 function Admin() {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState('');
-
+  const [showGallery, setShowGallery] = useState(false); 
   const handleFileChange = (event) => {
-    // Update the state with the selected file
     setFile(event.target.files[0]);
   };
 
@@ -18,13 +17,13 @@ function Admin() {
     
     // Create a FormData object to send the file
     const formData = new FormData();
-    formData.append('image', file); // 'image' should match the field name in your Express route
+    formData.append('image', file); 
 
     try {
       // Send a POST request to your Express server to upload the image
       const response = await axios.post(`${BASE_URL}/upload`, formData, { 
         headers: {
-          'Content-Type': 'multipart/form-data' // Set content type header for FormData
+          'Content-Type': 'multipart/form-data' 
         }
       });
       
@@ -36,6 +35,10 @@ function Admin() {
       // Handle errors
       setMessage('Error uploading image: ' + error.message);
     }
+  };
+
+  const handleShowGallery = () => {
+    setShowGallery(true); 
   };
 
   return (
@@ -55,6 +58,8 @@ function Admin() {
         <button type="submit">Upload</button>
       </form>
       {message && <p>{message}</p>}
+      <button onClick={handleShowGallery}>Show All Images</button>
+      {showGallery && <ImageGallery />} {/* Render ImageGallery component if showGallery is true */}
     </div>
   );
 }
