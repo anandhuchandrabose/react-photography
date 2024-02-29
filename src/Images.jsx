@@ -1,18 +1,9 @@
-import { FC } from "react";
+import React from "react";
 
-interface ImagesProps {
-  data: {
-    src: string;
-    title: string;
-    description: string;
-  }[];
-  onClick: (index: Number) => void;
-}
-
-const Images: FC<ImagesProps> = (props) => {
+function Images(props) {
   const { data, onClick } = props;
 
-  const handleClickImage = (index: Number) => {
+  const handleClickImage = (index) => {
     onClick(index);
   };
 
@@ -31,6 +22,6 @@ const Images: FC<ImagesProps> = (props) => {
       ))}
     </div>
   );
-};
+}
 
 export default Images;
