@@ -1,30 +1,58 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Lightbox from "yet-another-react-lightbox";
-import { slides } from "./data";
-import "yet-another-react-lightbox/styles.css";
 import { Download, Fullscreen, Thumbnails } from "yet-another-react-lightbox/plugins";
+import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 import Images from "./Images";
+import BASE_URL from "./admin/config";
 
 function App() {
+  const [images, setImages] = useState([]);
   const [index, setIndex] = useState(-1);
+
+  useEffect(() => {
+    fetchImages();
+  }, []);
+
+  const fetchImages = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/images");
+      if (!response.ok) {
+        throw new Error("Failed to fetch images");
+      }
+      const data = await response.json();
+      setImages(data);
+    } catch (error) {
+      console.error("Error fetching images:", error);
+    }
+  };
+
+  const handleImageClick = (clickedIndex) => {
+    if (clickedIndex !== index) { 
+      setIndex(clickedIndex); 
+    }
+  };
+
+  const handleCloseLightbox = () => {
+    setIndex(-1); 
+  };
   const handleAddImage = () => {
     window.location.href = "admin.html";
   };
   return (
     <>
-      <button onClick={handleAddImage}>Add Image</button>
-      <Images
-        data={slides}
-        onClick={(currentIndex) => setIndex(currentIndex)}
-      />
+     <button onClick={handleAddImage}>Add Image</button>
+      <Images data={images} onClick={handleImageClick} />
       <Lightbox
         plugins={[Download, Fullscreen, Thumbnails]}
         index={index}
-        open={index >= 0}
-        close={() => setIndex(-1)}
-        slides={slides}
+        open={index !== -1} 
+        close={handleCloseLightbox}
+        slides={images.map(image => ({
+          src: `${BASE_URL}/image/${image.id}`, 
+          type: 'image' 
+        }))}
       />
     </>
   );

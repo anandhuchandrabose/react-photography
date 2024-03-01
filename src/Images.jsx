@@ -1,22 +1,23 @@
 import React from "react";
+import BASE_URL from "./admin/config";
 
 function Images(props) {
   const { data, onClick } = props;
 
-  const handleClickImage = (index) => {
-    onClick(index);
+  const handleClickImage = (id) => {
+    onClick(id);
   };
 
   return (
     <div className="Images-container">
-      {data.map((slide, index) => (
+      {data.map((image) => (
         <div
-          onClick={() => handleClickImage(index)}
-          key={index}
+          onClick={() => handleClickImage(image.id)}
+          key={image.id} 
           className="image"
         >
           <div className="image-wrapper">
-            <img src={slide.src} alt={slide.description} />
+            <img src={`${BASE_URL}/image/${image.id}`} alt={image.name} />
           </div>
         </div>
       ))}
