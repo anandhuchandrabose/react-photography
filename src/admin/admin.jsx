@@ -1,7 +1,7 @@
 // Admin.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
-import ImageGallery from './ImageGallery'; 
+import ImageGallery from './image/ImageGallery'; 
 import BASE_URL from './config';
 
 function Admin() {
@@ -38,7 +38,7 @@ function Admin() {
   };
 
   const handleShowGallery = () => {
-    setShowGallery(true); 
+    window.location.href = "image.html";
   };
 
   return (
@@ -59,7 +59,6 @@ function Admin() {
       </form>
       {message && <p>{message}</p>}
       <button onClick={handleShowGallery}>Show All Images</button>
-      {showGallery && <ImageGallery />} {/* Render ImageGallery component if showGallery is true */}
     </div>
   );
 }

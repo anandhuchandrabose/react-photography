@@ -86,6 +86,15 @@ app.get('/image/:id', (req, res) => {
   });
 });
 
+// Route to delete image by ID
+app.delete('/image/:id', (req, res) => {
+  const imageId = req.params.id;
+  connection.query('DELETE FROM images WHERE id = ?', [imageId], (error, results, fields) => {
+    if (error) throw error;
+    res.send('Image deleted successfully');
+  });
+});
+
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
 });

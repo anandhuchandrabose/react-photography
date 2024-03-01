@@ -23,3 +23,9 @@
 .image:hover img {
   transform: scale(1.05);
 }
+
+.image button {
+  margin-top: 20px;
+  width: 50%;
+  
+}
