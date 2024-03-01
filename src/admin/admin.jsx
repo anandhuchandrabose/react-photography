@@ -1,13 +1,11 @@
 // Admin.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
-import ImageGallery from './image/ImageGallery'; 
 import BASE_URL from './config';
 
 function Admin() {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState('');
-  const [showGallery, setShowGallery] = useState(false); 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
   };

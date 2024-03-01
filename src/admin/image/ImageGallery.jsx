@@ -37,10 +37,12 @@ function Image() {
       <div className="Images-container">
         {error && <p>{error}</p>}
         {images.map((image) => (
-          <div key={image.id} className="image">
+          <div key={image.id} className="delimage">
             <img src={`${BASE_URL}/image/${image.id}`} alt={image.name} />
             {/* Add delete button here */}
+    
             <button onClick={() => handleDelete(image.id)}>Delete</button>
+   
           </div>
         ))}
       </div>
