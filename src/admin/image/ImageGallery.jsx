@@ -34,7 +34,7 @@ function Image() {
   return (
     <div>
       <Header /> {/* Include the Header component */}
-      <div className="Images-container">
+      <div className="Delimages-container">
         {error && <p>{error}</p>}
         {images.map((image) => (
           <div key={image.id} className="delimage">
