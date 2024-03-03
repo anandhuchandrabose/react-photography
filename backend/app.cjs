@@ -3,6 +3,7 @@ const multer = require('multer');
 const mysql = require('mysql');
 const fs = require('fs');
 const cors = require('cors'); 
+const sharp = require('sharp');
 
 const app = express();
 const upload = multer({ dest: './' });
@@ -46,22 +47,31 @@ connection.connect((err) => {
 });
 
 // Handle file upload to store image data
-app.post('/upload', upload.single('image'), (req, res) => {
+app.post('/upload', upload.single('image'), async (req, res) => {
   const imageName = req.file.originalname;
-  const image = fs.readFileSync(req.file.path); // Read the uploaded image file
+  let imageBuffer = fs.readFileSync(req.file.path); // Read the uploaded image file
 
-  // Insert the image data into the database
-  connection.query('INSERT INTO images (name, image) VALUES (?, ?)', [imageName, image], (error, results, fields) => {
-    if (error) throw error;
-
-    // Delete the file after storing it in the database
-    fs.unlink(req.file.path, (err) => {
-      if (err) throw err;
-      console.log('File deleted successfully');
+  try {
+    // Compress image using sharp
+    imageBuffer = await sharp(imageBuffer)
+      .resize({ fit: 'inside', width: 800, height: 800 }) // Resize the image
+      .toBuffer(); // Convert image to buffer
+  
+    // Insert the compressed image data into the database
+    connection.query('INSERT INTO images (name, image) VALUES (?, ?)', [imageName, imageBuffer], (error, results, fields) => {
+      if (error) throw error;
+  
+      // Delete the file after storing it in the database
+      fs.unlink(req.file.path, (err) => {
+        if (err) throw err;
+        console.log('File deleted successfully');
+      });
+  
+      res.send('Image uploaded and saved to database.');
     });
-
-    res.send('Image uploaded and saved to database.');
-  });
+  } catch (error) {
+    res.status(500).send('Error uploading image: ' + error.message);
+  }
 });
 
 // Add a new route to fetch all images from the database
