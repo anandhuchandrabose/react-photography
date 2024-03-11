@@ -6,7 +6,7 @@ const cors = require('cors');
 const sharp = require('sharp');
 
 const app = express();
-const upload = multer({ dest: './' });
+const upload = multer({ dest: './', limits: { files: 10 } }); // Limits the number of files to 5, you can adjust as needed
 
 // Enable CORS for all requests
 app.use(cors());
@@ -47,30 +47,37 @@ connection.connect((err) => {
 });
 
 // Handle file upload to store image data
-app.post('/upload', upload.single('image'), async (req, res) => {
-  const imageName = req.file.originalname;
-  let imageBuffer = fs.readFileSync(req.file.path); // Read the uploaded image file
-
+app.post('/upload', upload.array('images', 10), async (req, res) => {
+  const files = req.files;
+  let uploadedFiles = [];
+  
   try {
-    // Compress image using sharp
-    imageBuffer = await sharp(imageBuffer)
-      .resize({ fit: 'inside', width: 800, height: 800 }) // Resize the image
-      .toBuffer(); // Convert image to buffer
+    for (const file of files) {
+      const imageName = file.originalname;
+      let imageBuffer = fs.readFileSync(file.path); // Read the uploaded image file
   
-    // Insert the compressed image data into the database
-    connection.query('INSERT INTO images (name, image) VALUES (?, ?)', [imageName, imageBuffer], (error, results, fields) => {
-      if (error) throw error;
-  
-      // Delete the file after storing it in the database
-      fs.unlink(req.file.path, (err) => {
-        if (err) throw err;
-        console.log('File deleted successfully');
+      // Compress image using sharp
+      imageBuffer = await sharp(imageBuffer)
+        .resize({ fit: 'inside', width: 800, height: 800 }) // Resize the image
+        .toBuffer(); // Convert image to buffer
+    
+      // Insert the compressed image data into the database
+      connection.query('INSERT INTO images (name, image) VALUES (?, ?)', [imageName, imageBuffer], (error, results, fields) => {
+        if (error) throw error;
+        
+        // Delete the file after storing it in the database
+        fs.unlink(file.path, (err) => {
+          if (err) throw err;
+          console.log('File deleted successfully');
+        });
       });
+      
+      uploadedFiles.push(imageName);
+    }
   
-      res.send('Image uploaded and saved to database.');
-    });
+    res.send('Images uploaded and saved to database.');
   } catch (error) {
-    res.status(500).send('Error uploading image: ' + error.message);
+    res.status(500).send('Error uploading images: ' + error.message);
   }
 });
 

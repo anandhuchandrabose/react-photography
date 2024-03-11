@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 import '../../dist/admin.css'
 
 function Admin() {
-  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState(null);
   const [message, setMessage] = useState('');
   const [isUploading, setIsUploading] = useState(false);
 
   const handleFileChange = function (event) {
-    setFile(event.target.files[0]);
+    setFiles(event.target.files);
   };
 
   const handleFormSubmit = async function (event) {
@@ -18,7 +18,9 @@ function Admin() {
     setIsUploading(true);
 
     const formData = new FormData();
-    formData.append('image', file);
+    for (const file of files) {
+      formData.append('images', file);
+    }
 
     try {
       const response = await axios.post(`${BASE_URL}/upload`, formData, {
@@ -28,7 +30,7 @@ function Admin() {
       });
 
       setMessage(response.data);
-      setFile(null);
+      setFiles(null);
       setIsUploading(false);
     } catch (error) {
       setMessage('Error uploading image: ' + error.message);
@@ -38,26 +40,27 @@ function Admin() {
 
   return (
     <div className='admin'>
-    <div className="admin-container">
-      <h1 className="title">Admin Panel - Upload Image</h1>
-      <form onSubmit={handleFormSubmit}>
-        <div className="form-group">
-          <label htmlFor="image">Choose Image:</label>
-          <input
-            type="file"
-            id="image"
-            accept="image/*"
-            onChange={handleFileChange}
-            required
-          />
-        </div>
-        <button type="submit" className={isUploading ? "uploading" : ""}>
-          {isUploading ? "Uploading..." : "Upload"}
-        </button>
-      </form>
-      {message && <p className="message">{message}</p>}
-      <Link to="/Image" className="show-images-link">Show All Images</Link>
-    </div>
+      <div className="admin-container">
+        <h1 className="title">Admin Panel - Upload Image</h1>
+        <form onSubmit={handleFormSubmit}>
+          <div className="form-group">
+            <label htmlFor="images">Choose Images:</label>
+            <input
+              type="file"
+              id="images"
+              accept="image/*"
+              onChange={handleFileChange}
+              multiple
+              required
+            />
+          </div>
+          <button type="submit" className={isUploading ? "uploading" : ""}>
+            {isUploading ? "Uploading..." : "Upload"}
+          </button>
+        </form>
+        {message && <p className="message">{message}</p>}
+        <Link to="/Image" className="show-images-link">Show All Images</Link>
+      </div>
     </div>
   );
 }
