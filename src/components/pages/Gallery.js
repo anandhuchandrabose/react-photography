@@ -8,6 +8,7 @@ import Images from "../Images";
 import BASE_URL from "../../configuration/config";
 import "../dist/Gallery.css";
 import { Transition } from "framer-motion";
+import NavBar from "../NavBar";
 
 
 
@@ -43,9 +44,9 @@ function Gallery() {
     };
     return (
         <>
-            <splash />
+            <NavBar />
 
-      
+            
             <Images data={images} onClick={handleImageClick} />
             <Lightbox
                 plugins={[Download, Fullscreen, Thumbnails]}
