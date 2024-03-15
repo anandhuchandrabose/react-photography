@@ -37,6 +37,7 @@ function Gallery() {
         if (clickedIndex !== index) {
             setIndex(clickedIndex);
         }
+        console.log(clickedIndex)
     };
 
     const handleCloseLightbox = () => {
@@ -44,13 +45,13 @@ function Gallery() {
     };
     return (
         <>
-            <NavBar />
-
-            
-            <Images data={images} onClick={handleImageClick} />
+            <NavBar /> 
+            <div style={{ marginTop: '100px' }}>
+                <Images data={images} onClick={handleImageClick} />
+            </div>
             <Lightbox
                 plugins={[Download, Fullscreen, Thumbnails]}
-                index={index}
+                index={handleImageClick.clickedIndex}
                 open={index !== -1}
                 close={handleCloseLightbox}
                 slides={images.map(image => ({
