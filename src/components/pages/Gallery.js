@@ -46,7 +46,7 @@ function Gallery() {
     return (
         <>
             <NavBar /> 
-            <div style={{ marginTop: '100px' }}>
+            <div style={{ marginTop: '80px' }}>
                 <Images data={images} onClick={handleImageClick} />
             </div>
             <Lightbox

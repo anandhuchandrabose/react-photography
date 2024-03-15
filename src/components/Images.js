@@ -10,14 +10,14 @@ function Images(props) {
     };
 
     return (
-        <div className="Images-container">
+        <div className="Images-container p-lg-4">
             {data.map((image) => (
                 <div
                     onClick={() => handleClickImage(image.id)}
                     key={image.id}
                     className="image"
                 >
-                    <div className="image-wrapper">
+                    <div className="image-wrapper p-2">
                         <img src={`${BASE_URL}/image/${image.id}`} alt={image.name} />
                     </div>
                 </div>
