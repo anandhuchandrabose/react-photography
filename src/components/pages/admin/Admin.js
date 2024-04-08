@@ -7,6 +7,7 @@ import NavBar from '../../NavBar';
 
 function Admin() {
   const [files, setFiles] = useState(null);
+  const [category, setCategory] = useState('home'); 
   const [message, setMessage] = useState('');
   const [isUploading, setIsUploading] = useState(false);
 
@@ -14,14 +15,24 @@ function Admin() {
     setFiles(event.target.files);
   };
 
+  const handleCategoryChange = function (event) {
+    setCategory(event.target.value);
+  };
+
   const handleFormSubmit = async function (event) {
     event.preventDefault();
+    const confirmed = window.confirm('Are you sure you want to upload the images?'); 
+    if (!confirmed) {
+      return;
+    }
+
     setIsUploading(true);
 
     const formData = new FormData();
     for (const file of files) {
       formData.append('images', file);
-}
+    }
+    formData.append('category', category); 
 
     try {
       const response = await axios.post(`${BASE_URL}/upload`, formData, {
@@ -34,7 +45,13 @@ function Admin() {
       setFiles(null);
       setIsUploading(false);
     } catch (error) {
-      setMessage('Error uploading image: ' + error.message);
+      if (error.response) {
+        setMessage('Error: ' + error.response.data);
+      } else if (error.request) {
+        setMessage('Error: No response received from server.');
+      } else {
+        setMessage('Error: ' + error.message);
+      }
       setIsUploading(false);
     }
   };
@@ -54,9 +71,18 @@ function Admin() {
                 id="images"
                 accept="image/*"
                 onChange={handleFileChange}
-multiple
+                multiple
                 required
               />
+            </div>
+            <div className="form-group">
+              <label htmlFor="category">Select Category:</label>
+              <select id="category" value={category} onChange={handleCategoryChange}>
+                <option value="home">Home</option>
+                <option value="black&white">Black & White</option>
+                <option value="portrait">Portrait</option>
+                <option value="landscape">Landscape</option>
+              </select>
             </div>
             <button type="submit" className={isUploading ? "uploading" : ""}>
               {isUploading ? "Uploading..." : "Upload"}
