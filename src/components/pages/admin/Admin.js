@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import BASE_URL from '../../../configuration/config';
+import { UPLOAD_IMAGES } from '../../../configuration/config';
 import { Link } from "react-router-dom";
 import '../../dist/admin.css'
 import NavBar from '../../NavBar';
@@ -35,7 +35,7 @@ function Admin() {
     formData.append('category', category); 
 
     try {
-      const response = await axios.post(`${BASE_URL}/upload`, formData, {
+      const response = await axios.post(`${UPLOAD_IMAGES}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

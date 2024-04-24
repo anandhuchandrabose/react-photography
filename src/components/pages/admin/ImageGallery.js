@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import BASE_URL from '../../../configuration/config';
+import { DELETE_IMAGE_BY_ID, GET_ALL_IMAGE, GET_IMAGES_BY_CATEGORY, GET_IMAGE_BY_ID } from '../../../configuration/config';
 
 function Image() {
   const [images, setImages] = useState([]);
@@ -8,7 +8,7 @@ function Image() {
 
   const fetchImages = async function () {
     try {
-      const response = await axios.get(`${BASE_URL}/images`);
+      const response = await axios.get(`${GET_ALL_IMAGE}`);
       setImages(response.data);
     } catch (error) {
       setError('Error fetching images: ' + error.message);
@@ -19,10 +19,9 @@ function Image() {
     fetchImages();
   }, []);
 
-  const handleDelete = async function (id) {
+  const handleDelete = async function (order_id) {
     try {
-      await axios.delete(`${BASE_URL}/image/${id}`);
-      // After deleting the image, fetch the updated list of images
+      await axios.delete(`${DELETE_IMAGE_BY_ID}/${order_id}`);
       fetchImages();
     } catch (error) {
       setError('Error deleting image: ' + error.message);
@@ -36,7 +35,7 @@ function Image() {
         images.map(function (image) {
           return (
             React.createElement("div", { key: image.id, className: "delimage" },
-              React.createElement("img", { src: `${BASE_URL}/image/${image.id}`, alt: image.name }),
+              React.createElement("img", { src: `${GET_IMAGE_BY_ID}/${image.id}`, alt: image.name }),
               React.createElement("button", { onClick: function () { return handleDelete(image.id); } }, "Delete")
             )
           );
