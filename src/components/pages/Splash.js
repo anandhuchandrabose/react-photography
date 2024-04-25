@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import anime from 'animejs';
 import '../dist/style.css';
 import images from '../img/tst.jpg';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { Link } from "react-router-dom";
 
 
@@ -47,7 +47,7 @@ function Splash() {
                     </div>
 
                     <Link to="/Gallery">
-                        <button>Start Now</button>
+                        <button></button>
                     </Link>
                     <div className='splash-item-3'></div>
 

@@ -1,10 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"; 
+import LightGallery from 'lightgallery/react';
+import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-zoom.css';
+import 'lightgallery/css/lg-thumbnail.css';
+import BASE_URL from "../../configuration/config";
 import { GET_IMAGES_BY_CATEGORY, GET_IMAGE_BY_ID } from "../../configuration/config";
 import "../dist/Gallery.css";
+import { Transition } from "framer-motion";
 import NavBar from "../NavBar";
 
+
 function Gallery() {
+    const onInit = () => {
+        console.log('lightGallery has been initialized');
+    };
+
     const [images, setImages] = useState([]);
 
     useEffect(() => {
@@ -22,19 +33,30 @@ function Gallery() {
 
     return (
         <>
-            <NavBar /> 
-            <div className="gallery-container" style={{ marginTop: '80px' }}>
-                {images.map(image => (
-                    <img 
-                        key={image.id} 
-                        src={`${GET_IMAGE_BY_ID}/${image.id}`} 
-                        alt={image.name} 
-                        className="gallery-image"
-                    />
-                ))}
+
+
+            <div className="App">
+                <NavBar />
+                <header>
+                    <h1 className="text-center">stories of ragooty</h1>
+                </header>
+                <LightGallery
+                    onInit={onInit}
+                    speed={500}
+                >
+                    {images.map(image => (
+                        <a key={image.id}>
+                            <img
+                                src={`${GET_IMAGE_BY_ID}/${image.id}`}
+                                alt={image.name}
+                                className="gallery-image"
+                            />
+                        </a>
+                    ))}
+                </LightGallery>
             </div>
         </>
-    )
+    );
 }
 
 export default Gallery;

@@ -10,6 +10,7 @@
     "axios": "^1.6.7",
     "framer-motion": "^11.0.8",
     "fs": "^0.0.1-security",
+    "lightgallery": "^2.7.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "react": "^18.2.0",
@@ -29,7 +30,7 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-  "react-app/jest"
+      "react-app/jest"
     ]
   },
   "browserslist": {
