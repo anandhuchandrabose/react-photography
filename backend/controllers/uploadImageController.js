@@ -3,16 +3,17 @@ const sharp = require('sharp');
 const db = require('../db/connection');
 
 const getOrderID = (callback) => {
-    db.query('SELECT MAX(order_id) AS maxOrderId FROM images', (err, result) => {
-        if (err) {
-            callback(err);
-        } else {
-            const nextOrderId = result.length ? parseInt(result[0].maxOrderId) + 1 : 1;
-            callback(null, nextOrderId);
-        }
-    });
-};
-
+        db.query('SELECT MAX(order_id) AS maxOrderId FROM images', (err, result) => {
+            if (err) {
+                callback(err);
+            } else {
+                const nextOrderId = result.length ? parseInt(result[0].maxOrderId) + 1 : 1;
+                const validOrderId = isNaN(nextOrderId) ? 1 : nextOrderId;
+                callback(null, validOrderId);
+            }
+        });
+    };
+    
 exports.uploadImages = async (req, res, next) => {
     const files = req.files;
 
