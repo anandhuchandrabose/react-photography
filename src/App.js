@@ -10,7 +10,7 @@ function App() {
       <Routes>
         {/* COMING SOON */}
         <Route path="/" element={<ComingSoon />} />
-        <Route path="/LinkTree" element={<LinkTree/>} />
+        <Route path="/contact" element={<LinkTree/>} />
       </Routes>
     </Router>
   );
