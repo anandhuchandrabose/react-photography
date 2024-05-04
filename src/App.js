@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import ComingSoon from './test/comingsoon';
+import ComingSoon from './test/comingsoon';
 import LinkTree from './LinkTree/LinkTree';
 
 
@@ -9,7 +9,8 @@ function App() {
     <Router>
       <Routes>
         {/* COMING SOON */}
-        <Route path="/" element={<LinkTree />} />
+        <Route path="/" element={<ComingSoon />} />
+        <Route path="/LinkTree" element={<LinkTree/>} />
       </Routes>
     </Router>
   );
