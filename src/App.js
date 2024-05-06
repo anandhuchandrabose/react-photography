@@ -8,6 +8,7 @@ import Gallery from './components/pages/Gallery';
 import Admin from './components/pages/admin/Admin';
 import ImageGallery from './components/pages/admin/ImageGallery';
 import Home from './components/pages/home';
+import LinkTree from './LinkTree/LinkTree';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/image" element={<ImageGallery />} />
         <Route path="/Home" element={<Home />} />
+        <Route path="/contact" element={<LinkTree />} />
       </Routes>
     </Router>
   );
