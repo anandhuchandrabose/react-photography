@@ -2,6 +2,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import React, { useState, useEffect } from "react";
 import "./LinkTree.css"
 
+
 const ExpandingCard = ({ expanded }) => {
 
     return (
@@ -9,7 +10,7 @@ const ExpandingCard = ({ expanded }) => {
             {/* <h5 style={{ opacity: expanded ? 0 : 1, transition: 'opacity 0.3s ease-in-out' }}><br /></h5> */}
             <div className="expandable-content text-center">
                 <h5 style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>Deheedeham</h5>
-                <a href="google.com"> <p style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>"When life becomes its own body"
+                <a> <p style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>"When life becomes its own body"
                     <br /> <p className='eventvenue' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 2.3s ease-in-out' }}>Photography exhibition,kochi <br />click here to know more</p>
                 </p>
                 </a>
@@ -20,7 +21,7 @@ const ExpandingCard = ({ expanded }) => {
 
 
 const LinkTree = () => {
-    const [expanded, setExpanded] = useState(false);
+    const [expanded, setExpanded] = useState(false);   
 
     useEffect(() => {
         const timer = setTimeout(() => {

@@ -10,6 +10,9 @@ function ComingSoon() {
         navigate('/contact')
     };
 
+    const redirectToDeheedeham = () => {
+        navigate('/deheedeham')
+    };
     return (
         <div className="container-fluid d-flex justify-content-center align-items-center vh-100">
             <div className="text-center">
@@ -27,7 +30,7 @@ function ComingSoon() {
                     <button className="button1 btn-primary btn-lg" onClick={redirectToContact}>CONTACT</button>
                 </div>
                 <div className="container mt-4">
-                    <button className="button1 btn-outline-primary btn-lg">Deheedeham photography exhibition, Kochi</button>
+                    <button className="button1 btn-outline-primary btn-lg" onClick={redirectToDeheedeham}>Deheedeham photography exhibition, Kochi</button>
                 </div>
                 <Preloader />
             </div>
