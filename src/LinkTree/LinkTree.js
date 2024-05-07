@@ -6,15 +6,23 @@ import "./LinkTree.css"
 const ExpandingCard = ({ expanded }) => {
 
     return (
-        <div className={`card text-center d-flex-column ${expanded ? 'expanded' : ''}`} id='dehebtn'>
-            {/* <h5 style={{ opacity: expanded ? 0 : 1, transition: 'opacity 0.3s ease-in-out' }}><br /></h5> */}
-            <div className="expandable-content text-center">
-                <h5 style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>Deheedeham</h5>
-                <a> <p style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>"when life becomes its own body"
-                    <br /> <p className='eventvenue' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 2.3s ease-in-out' }}>Photography exhibition,kochi <br /></p>
-                </p>
-                </a>
-            </div>
+        // <div className={`card text-center d-flex-column ${expanded ? 'expanded' : ''}`} id='dehebtn'>
+        //     {/* <h5 style={{ opacity: expanded ? 0 : 1, transition: 'opacity 0.3s ease-in-out' }}><br /></h5> */}
+        //     <div className="expandable-content text-center">
+        //         <h5 id='h55' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>Deheedeham</h5>
+        //         <p style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>"when life becomes its own body"
+        //             <br /> <p className='eventvenue' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 2.3s ease-in-out' }}>Photography exhibition,kochi <br /></p>
+        //         </p>
+
+        //     </div>
+        // </div>
+        <div class=" usa-grid">
+            <h1 id="cheese"> New Event !</h1>
+            {/* <h1 class="title">Grace Hopper Day</h1> */}
+            <h5 class="title text-center" id='h55' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}>Deheedeham</h5>
+            <h1 class="title" id="sauce">Hackathon</h1>
+            
+            <h1 id="crust">Dec 9th, 2016</h1>
         </div>
     );
 }
@@ -42,11 +50,12 @@ const LinkTree = () => {
 
                     <img src="./111.jpeg" alt="" className="circle-image p-1 shadow" />
 
-                    <h1 className='mt-5'>Ragooty</h1>
-                    <h3 className='mb-4'>photographer</h3>
+
+                    <h1 className='mt-3'>Ragooty</h1>
+                    <h3 className='mb-4 h33'>photographer</h3>
 
                     <ExpandingCard expanded={expanded} />
-                    <a  href='/deheedeham' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}> click here to know more
+                    <a href='/deheedeham' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}> click here to know more
                     </a>
 
                     <div class="card m-3" id="card5" >
