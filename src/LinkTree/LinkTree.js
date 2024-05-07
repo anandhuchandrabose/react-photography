@@ -6,12 +6,12 @@ import "./LinkTree.css"
 const ExpandingCard = ({ expanded }) => {
 
     return (
-        <div className={`card text-center d-flex-column ${expanded ? 'expanded' : ''}`}>
+        <div className={`card text-center d-flex-column ${expanded ? 'expanded' : ''}`} id='dehebtn'>
             {/* <h5 style={{ opacity: expanded ? 0 : 1, transition: 'opacity 0.3s ease-in-out' }}><br /></h5> */}
             <div className="expandable-content text-center">
                 <h5 style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>Deheedeham</h5>
-                <a> <p style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>"When life becomes its own body"
-                    <br /> <p className='eventvenue' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 2.3s ease-in-out' }}>Photography exhibition,kochi <br />click here to know more</p>
+                <a> <p style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>"when life becomes its own body"
+                    <br /> <p className='eventvenue' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 2.3s ease-in-out' }}>Photography exhibition,kochi <br /></p>
                 </p>
                 </a>
             </div>
@@ -21,7 +21,7 @@ const ExpandingCard = ({ expanded }) => {
 
 
 const LinkTree = () => {
-    const [expanded, setExpanded] = useState(false);   
+    const [expanded, setExpanded] = useState(false);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -46,7 +46,8 @@ const LinkTree = () => {
                     <h3 className='mb-4'>photographer</h3>
 
                     <ExpandingCard expanded={expanded} />
-
+                    <a  href='/deheedeham' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}> click here to know more
+                    </a>
 
                     <div class="card m-3" id="card5" >
                         <a class="socialContainer containerOne" href="https://www.instagram.com/ragooty_sasidharan">

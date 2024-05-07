@@ -11,13 +11,32 @@ h3 {
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
 
-
 }
 
 h5 {
     font-family: 'Belleza', sans-serif;
     font-weight: 600;
     font-size: 18px;
+    /* background: linear-gradient(to right, #101010 0, #fff 10%, #161616 20%);
+    background-position: 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s infinite linear;
+    animation-fill-mode: forwards;
+    -webkit-text-size-adjust: none;
+    text-decoration: none;
+    white-space: nowrap; */
+
+}
+
+#dehebtn {
+    cursor: pointer;
+}
+
+.dd_header {
+    font-family: 'Belleza', sans-serif;
+    font-weight: 600;
+    font-size: 38px;
     background: linear-gradient(to right, #101010 0, #fff 10%, #161616 20%);
     background-position: 0;
     -webkit-background-clip: text;
@@ -27,13 +46,15 @@ h5 {
     -webkit-text-size-adjust: none;
     text-decoration: none;
     white-space: nowrap;
-
 }
 
-p {
+p,
+a {
     font-family: "Montserrat", sans-serif;
     font-size: 13px;
     font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
 
 
 }
@@ -238,7 +259,7 @@ p {
     }
 
     100% {
-        background-position: 180px;
+        background-position: 280px;
     }
 }
 
@@ -252,7 +273,7 @@ p {
     }
 
     100% {
-        background-position: 180px;
+        background-position: 280px;
     }
 }
 
@@ -266,7 +287,7 @@ p {
     }
 
     100% {
-        background-position: 180px;
+        background-position: 280px;
     }
 }
 
@@ -280,6 +301,6 @@ p {
     }
 
     100% {
-        background-position: 180px;
+        background-position: 280px;
     }
 }
