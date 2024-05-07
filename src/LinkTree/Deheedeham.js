@@ -6,9 +6,9 @@ const ExpandingCard = ({ expanded }) => {
         <div className={`card text-center d-flex-column ${expanded ? 'expanded' : ''}`}>
             {/* <h5 style={{ opacity: expanded ? 0 : 1, transition: 'opacity 0.3s ease-in-out' }}><br /></h5> */}
             <div className="expandable-content text-center">
-                <h1 className="dd_header" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>DEHEE DHEHAM</h1>
-                <h4 style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>" when life becomes its own body "
-                    <br /> <br /> <h5 className='eventvenue' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>Photography exhibition, Kochi</h5>
+                <h1 className="dd_header" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>DEHEEDHEHAM</h1>
+                <h4 style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>when life becomes its own body
+                    <br /> <br /> <h5 className='eventvenue' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>Photography exhibition by Ragooty </h5>
                 </h4>
             </div>
         </div>
