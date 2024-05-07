@@ -16,17 +16,21 @@ const ExpandingCard = ({ expanded }) => {
 
         //     </div>
         // </div>
-        <div class=" usa-grid">
-            <h1 id="cheese"> New Event !</h1>
-            {/* <h1 class="title">Grace Hopper Day</h1> */}
-            <h5 class="title text-center" id='h55' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}>Deheedeham</h5>
-            <h1 class="title" id="sauce">Hackathon</h1>
-            
-            <h1 id="crust">Dec 9th, 2016</h1>
-        </div>
+        <a href='/deheedeham'>
+            <div class=" usa-grid">
+                <h1 id="cheese">NEW EVENT</h1>
+                {/* <h1 class="title">Grace Hopper Day</h1> */}
+                <h5 class="title text-center" id='h55' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}>Deheedeham</h5>
+                {/* <h1 class="title" id="sauce">Hackathon</h1> */}
+                <p className="title text-center" id="sauce" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>when life becomes its own body</p>
+                <p className="title text-center" id="sauce1" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>Photography exhibition,kochi. know More</p>
+
+                {/* <h1 id="cheese1">Know More</h1> */}
+            </div>
+        </a>
     );
 }
-
+{/* <p className='eventvenue' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 2.3s ease-in-out' }}>Photography exhibition,kochi <br /></p> */ }
 
 const LinkTree = () => {
     const [expanded, setExpanded] = useState(false);
@@ -55,8 +59,8 @@ const LinkTree = () => {
                     <h3 className='mb-4 h33'>photographer</h3>
 
                     <ExpandingCard expanded={expanded} />
-                    <a href='/deheedeham' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}> click here to know more
-                    </a>
+                    {/* <a href='/deheedeham' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}> click here to know more
+                    </a> */}
 
                     <div class="card m-3" id="card5" >
                         <a class="socialContainer containerOne" href="https://www.instagram.com/ragooty_sasidharan">

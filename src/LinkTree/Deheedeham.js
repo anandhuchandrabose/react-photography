@@ -27,23 +27,32 @@ const Deheedeham = () => {
     }, []);
 
     return (
-        <div className="container-fluid bg-light d-flex align-items-center justify-content-center">
-            <div className="container py-5">
-                <div className="container d-flex flex-column align-items-center justify-content-center mb-4">
-                    {/* <div className="col-lg-8 text-center mb-4"> */}
-                    <ExpandingCard expanded={expanded} />
-                    {/* </div> */}
-                </div>
-                <div className="row justify-content-center align-items-center">
-                    <div className="col-lg-8">
-                        <img src="./desk-banner.jpg" alt="" className="p-1 shadow banner-image img-fluid d-none d-lg-block" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }} />
-                        <img src="./mob-banner.jpg" alt="" className="p-1 shadow banner-image img-fluid d-lg-none" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }} />
+        <div className="deheedeham-container">
+            <div className="container-fluid bg-light d-flex align-items-center justify-content-center h-100">
+                <div className="container py-5">
+                    <div className="container d-flex flex-column align-items-center justify-content-center mb-4">
+                        {/* <div className="col-lg-8 text-center mb-4"> */}
+                        <ExpandingCard expanded={expanded} />
+                        {/* </div> */}
                     </div>
+                    <div className="row justify-content-center align-items-center">
+                        <div className="col-lg-8">
+                            <img src="./desk-banner.jpg" alt="" className="p-1 shadow banner-image img-fluid d-none d-lg-block" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }} />
+                            <img src="./mob-banner.jpg" alt="" className="p-1 shadow banner-image img-fluid d-lg-none" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }} />
+                        </div>
+                    </div>
+                    <div className="par text-center px-1 container-fluid" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}><p>The mind and body is known to coexist and respond mutually, body being the perishable physical vessel for the soul to experience the world. These photographs are visual representation of body being the equally expressive medium of one's life, just like the soul.</p></div>
+                    {/* <button className="bookbutton" >
+                        <h6>book your tickets here</h6>
+                        <img src="./image.png" alt="" className="p-1" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }} />
+                    </button> */}
+
                 </div>
-                <div className="par text-center px-1 container-fluid" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}><p>The mind and body is known to coexist and respond mutually, body being the perishable physical vessel for the soul to experience the world. These photographs are visual representation of body being the equally expressive medium of one's life, just like the soul.</p></div>
             </div>
+
         </div>
     );
 };
+
 
 export default Deheedeham;
