@@ -23,7 +23,7 @@ const ExpandingCard = ({ expanded }) => {
                 <h5 class="title text-center" id='h55' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}>Deheedeham</h5>
                 {/* <h1 class="title" id="sauce">Hackathon</h1> */}
                 <p className="title text-center" id="sauce" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>when life becomes its own body</p>
-                <p className="title text-center" id="sauce1" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>Photography exhibition,kochi. know More</p>
+                <p className="title text-center" id="sauce1" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>Photography Exhibition,Kochi. know More</p>
 
                 {/* <h1 id="cheese1">Know More</h1> */}
             </div>
@@ -56,7 +56,7 @@ const LinkTree = () => {
 
 
                     <h1 className='mt-3'>Ragooty</h1>
-                    <h3 className='mb-4 h33'>photographer</h3>
+                    <h3 className='mb-4 h33'>Photographer</h3>
 
                     <ExpandingCard expanded={expanded} />
                     {/* <a href='/deheedeham' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}> click here to know more

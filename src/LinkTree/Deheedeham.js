@@ -8,7 +8,7 @@ const ExpandingCard = ({ expanded }) => {
             <div className="expandable-content text-center">
                 <h1 className="dd_header" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>DEHEEDHEHAM</h1>
                 <h4 style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>when life becomes its own body
-                    <br /> <br /> <h5 className='eventvenue' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>Photography exhibition by Ragooty </h5>
+                    <br /> <br /> <h5 className='eventvenue' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>Photography Exhibition by Ragooty </h5>
                 </h4>
             </div>
         </div>
