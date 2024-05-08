@@ -28,7 +28,7 @@ const Deheedeham = () => {
     return (
         <div className="deheedeham-container">
             <div className="container-fluid bg-light d-flex align-items-center justify-content-center h-100">
-                <div className="container py-5">
+                <div className="container py-1">
                     <div className="container d-flex flex-column align-items-center justify-content-center mb-4">
                         {/* <div className="col-lg-8 text-center mb-4"> */}
                         <ExpandingCard expanded={expanded} />
@@ -44,9 +44,11 @@ const Deheedeham = () => {
                         <p>The mind and body is known to coexist and respond mutually, body being the perishable physical vessel for the soul to experience the world. These photographs are visual representation of body being the equally expressive medium of one's life, just like the soul.</p>
                     </div>
                     <div className="text-center mt-1">
-                        <a href="https://in.bookmyshow.com/events/deheedeham-photography-exhibition-by-ragooty/ET00396777" target="_blank" rel="noopener noreferrer">
-                            <img src="./bookmyshow.png" alt="BookMyShow" className="img-fluid" style={{ width: '100px' }} />
-                        </a>  
+                    <a href="https://in.bookmyshow.com/events/deheedeham-photography-exhibition-by-ragooty/ET00396777" target="_blank" rel="noopener noreferrer" >
+                        <img src="./bookmyshow.png" alt="BookMyShow" className="img-fluid" style={{ width: '100px' }} />
+                        <p className="text-dark">BOOK TICKETS</p>
+                    </a>
+ 
                     </div>
                 </div>
             </div>
