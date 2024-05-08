@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
-import "./Deheedeham.css"
+import "./Deheedeham.css";
 
 const ExpandingCard = ({ expanded }) => {
     return (
         <div className={`card text-center d-flex-column ${expanded ? 'expanded' : ''}`}>
-            {/* <h5 style={{ opacity: expanded ? 0 : 1, transition: 'opacity 0.3s ease-in-out' }}><br /></h5> */}
             <div className="expandable-content text-center">
-                <h1 className="dd_header" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>DEHEEDHEHAM</h1>
+                <h1 className="dd_header mt-4 mb-2" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>DEHEEDHEHAM</h1>
                 <h4 style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>when life becomes its own body
-                    <br /> <br /> <h5 className='eventvenue' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>Photography Exhibition by Ragooty </h5>
+                    <h5 className='eventvenue mt-2' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>Photography Exhibition by Ragooty </h5>
                 </h4>
             </div>
         </div>
@@ -41,18 +40,18 @@ const Deheedeham = () => {
                             <img src="./mob-banner.jpg" alt="" className="p-1 shadow banner-image img-fluid d-lg-none" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }} />
                         </div>
                     </div>
-                    <div className="par text-center px-1 container-fluid" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}><p>The mind and body is known to coexist and respond mutually, body being the perishable physical vessel for the soul to experience the world. These photographs are visual representation of body being the equally expressive medium of one's life, just like the soul.</p></div>
-                    {/* <button className="bookbutton" >
-                        <h6>book your tickets here</h6>
-                        <img src="./image.png" alt="" className="p-1" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }} />
-                    </button> */}
-
+                    <div className="par text-center px-1 container-fluid" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}>
+                        <p>The mind and body is known to coexist and respond mutually, body being the perishable physical vessel for the soul to experience the world. These photographs are visual representation of body being the equally expressive medium of one's life, just like the soul.</p>
+                    </div>
+                    <div className="text-center mt-1">
+                        <a href="https://in.bookmyshow.com/events/deheedeham-photography-exhibition-by-ragooty/ET00396777" target="_blank" rel="noopener noreferrer">
+                            <img src="./bookmyshow.png" alt="BookMyShow" className="img-fluid" style={{ width: '100px' }} />
+                        </a>  
+                    </div>
                 </div>
             </div>
-
         </div>
     );
 };
-
 
 export default Deheedeham;
