@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 // Directory to store uploaded files
-const uploadDirectory = '/';
+const uploadDirectory = './';
 
 // Create the uploads directory if it doesn't exist
 if (!fs.existsSync(uploadDirectory)) {
