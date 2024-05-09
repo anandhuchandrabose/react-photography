@@ -79,9 +79,10 @@ function Admin() {
               <label htmlFor="category">Select Category:</label>
               <select id="category" value={category} onChange={handleCategoryChange}>
                 <option value="home">Home</option>
-                <option value="black&white">Black & White</option>
-                <option value="portrait">Portrait</option>
-                <option value="landscape">Landscape</option>
+                <option value="fineart">Fine Art</option>
+                <option value="lifeonstreets">Life on Streets</option>
+                <option value="commercial">Commercial</option>
+                <option value="travel">Travel</option>
               </select>
             </div>
             <button type="submit" className={isUploading ? "uploading" : ""}>
