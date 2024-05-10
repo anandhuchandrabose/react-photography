@@ -23,16 +23,7 @@ const NavBar = () => {
                                     <a className="nav-link" aria-current="page" href="#">Home</a>
                                 </li>
                                 <li className="nav-item px-3">
-                                    <a className="nav-link" href="#">Gallery</a>
-                                </li>
-                                <li className="nav-item px-3">
-                                    <a className="nav-link" href="nav-link">Portraits</a>
-                                </li>
-                                <li className="nav-item px-3">
-                                    <a className="nav-link" href="nav-link">Fashion</a>
-                                </li>
-                                <li className="nav-item px-3">
-                                    <a className="nav-link" href="nav-link">Fine Art</a>
+                                    <a className="nav-link" href="/Gallery">Gallery</a>
                                 </li>
                                 <li className="nav-item px-3">
                                     <a className="nav-link" href="nav-link">Contact</a>

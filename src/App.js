@@ -16,10 +16,10 @@ function App() {
     <Router>
       <Routes>
         {/* <Route path="/gallery" element={<Splash />} /> */}
-        <Route path="/" element={<Gallery />} />
+        <Route path="/" element={<Home />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/image" element={<ImageGallery />} />
-        <Route path="/Home" element={<Home />} />
+        <Route path="/Gallery" element={<Gallery />} />
         <Route path="/contact" element={<LinkTree />} />
       </Routes>
     </Router>

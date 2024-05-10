@@ -4,7 +4,7 @@ body {
 }
 
 .lg-react-element {
-    column-count: 4;
+    column-count: 3;
     column-gap: 10px;
 
 }
@@ -14,6 +14,7 @@ img {
     display: block;
     padding: 5px 0px;
     border-radius: 2px;
+    -webkit-user-drag: none;
 }
 
 img {
