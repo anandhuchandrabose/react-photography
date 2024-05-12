@@ -1,14 +1,98 @@
-.small-img {
+@import url('https://fonts.googleapis.com/css2?family=Quando&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Quando&display=swap');
+
+/* .small-img {
     width: 50px;
-    /* Adjust as needed */
+ 
     height: 50px;
-    /* Adjust as needed */
+
+} */
+
+
+.hd1 {
+    font-family: "Quando", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    margin-bottom: 0;
+
 }
 
 
-body h1 {
-    font-family: "Dancing Script", cursive;
-    font-optical-sizing: auto;
-    font-weight: 600;
+.navbar {
+    padding: 10px;
+    font-family: "Quando", serif;
+    font-weight: 500;
     font-style: normal;
+
+}
+
+.navlinks {
+    color: black !important;
+}
+
+.navlinks :hover {
+    text-decoration: underline !important;
+}
+
+
+.navbar-link {
+    text-decoration: none;
+    color: white;
+
+}
+
+.navbar-link:hover {
+    text-decoration: underline !important;
+}
+
+.navlinks {
+    font-size: 17px;
+
+}
+
+@media (max-width: 768px) {
+    .navbar-toggler {
+        display: block;
+    }
+
+    .navbar-collapse {
+        display: none;
+    }
+
+    .navbar-expand-lg .navbar-nav .nav-link {
+        color: black;
+        margin-bottom: 10px;
+    }
+
+    .offcanvas {
+        display: block !important;
+        flex-direction: column;
+        height: 100vh;
+        top: 0;
+        left: 0;
+    }
+
+    .offcanvas-header {
+        background-color: #333;
+    }
+
+    .offcanvas-body {
+        padding: 15px;
+        background-color: #333;
+        color: white;
+    }
+
+    .navbar-nav {
+        width: 100%;
+    }
+
+    .navbar-toggler-icon {
+        background-color: white;
+    }
+
+    .navlinks {
+        display: flex;
+        flex-direction: column;
+    }
 }

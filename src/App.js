@@ -9,6 +9,10 @@ import Admin from './components/pages/admin/Admin';
 import ImageGallery from './components/pages/admin/ImageGallery';
 import Home from './components/pages/home';
 import LinkTree from './LinkTree/LinkTree';
+import Travel from './components/pages/category/Travel';
+import LifeOnStreets from './components/pages/category/LifeOnStreets';
+import Commercial from './components/pages/category/Commercial';
+import FineArt from './components/pages/category/FineArt';
 
 
 function App() {
@@ -21,6 +25,11 @@ function App() {
         <Route path="/image" element={<ImageGallery />} />
         <Route path="/Gallery" element={<Gallery />} />
         <Route path="/contact" element={<LinkTree />} />
+        <Route path='/Travel' element={<Travel/>}></Route>
+        <Route path='/LifeOnStreets' element={<LifeOnStreets/>}></Route>
+        <Route path='/Commercial' element={<Commercial/>}></Route>
+        <Route path='/FineArt' element={<FineArt/>}></Route>
+
       </Routes>
     </Router>
   );

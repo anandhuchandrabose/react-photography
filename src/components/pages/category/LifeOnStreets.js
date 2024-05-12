@@ -4,14 +4,13 @@ import LightGallery from 'lightgallery/react';
 import 'lightgallery/css/lightgallery.css';
 import 'lightgallery/css/lg-zoom.css';
 import 'lightgallery/css/lg-thumbnail.css';
-import BASE_URL from "../../configuration/config";
-import { GET_IMAGES_BY_CATEGORY, GET_IMAGE_BY_ID } from "../../configuration/config";
-import "../dist/Gallery.css";
-import { Transition } from "framer-motion";
-import NavBar from "../NavBar";
+import { GET_IMAGES_BY_CATEGORY, GET_IMAGE_BY_ID } from "../../../configuration/config";
+import "../../dist/Gallery.css";
+// import { Transition } from "framer-motion";
+import NavBar from "../../NavBar";
 
 
-function Home() {
+function LifeOnStreets() {
     const onInit = () => {
         console.log('lightGallery has been initialized');
     };
@@ -24,7 +23,7 @@ function Home() {
 
     const fetchImages = async () => {
         try {
-            const response = await axios.get(`${GET_IMAGES_BY_CATEGORY}/home`);
+            const response = await axios.get(`${GET_IMAGES_BY_CATEGORY}/LifeOnStreets`);
             setImages(response.data);
 
         } catch (error) {
@@ -60,4 +59,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default LifeOnStreets;
