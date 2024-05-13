@@ -41,6 +41,7 @@ function Home() {
                 {/* <header>
                     <h1 className="text-center pt-3">stories of ragooty</h1>
                 </header> */}
+                <a href="#">
                 <LightGallery
                     onInit={onInit}
                     speed={500}
@@ -55,6 +56,7 @@ function Home() {
                         </a>
                     ))}
                 </LightGallery>
+                </a>
             </div>
         </>
     );
