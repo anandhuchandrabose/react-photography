@@ -11,6 +11,8 @@ import { GET_IMAGES_BY_CATEGORY, GET_IMAGE_BY_ID } from "../../configuration/con
 import "../dist/Gallery.css";
 import { Transition } from "framer-motion";
 import NavBar from "../NavBar";
+import "../dist/Footer.css"
+import Footer from "../Footer";
 
 function Gallery() {
     const onInit = () => {
@@ -103,6 +105,7 @@ function Gallery() {
                 {renderImagesByCategory('commercial')}
                 {renderImagesByCategory('lifeonstreets')}
             </div>
+            <Footer/>
         </div>
     );
 }

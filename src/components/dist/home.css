@@ -21,3 +21,7 @@ img {
     filter: opacity(.9);
     transform: scale(1.01);
 }
+
+.lg-react-element {
+    pointer-events: none;
+}

@@ -113,3 +113,8 @@ img {
 
      }
  }
+
+
+ .lg-react-element {
+    pointer-events: none;
+}
