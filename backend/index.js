@@ -3,6 +3,7 @@ const cors = require('cors');
 const getImageRoutes = require('./routes/getImageRouter');
 const uploadImageRoutes = require('./routes/uploadImageRouter');
 const deleteImageRoutes = require('./routes/deleteImageRouter');
+const apiCheckRouter = require('./routes/apiRoute');
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 
 // Routes
 app.use('/getImages', getImageRoutes);
+app.use('/api', apiCheckRouter);
 app.use('/uploadImages', uploadImageRoutes);
 app.use('/deleteImages', deleteImageRoutes);
 
