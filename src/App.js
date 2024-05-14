@@ -13,6 +13,7 @@ import Travel from './components/pages/category/Travel';
 import LifeOnStreets from './components/pages/category/LifeOnStreets';
 import Commercial from './components/pages/category/Commercial';
 import FineArt from './components/pages/category/FineArt';
+import Deheedeham from './LinkTree/Deheedeham';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path='/LifeOnStreets' element={<LifeOnStreets/>}></Route>
         <Route path='/Commercial' element={<Commercial/>}></Route>
         <Route path='/FineArt' element={<FineArt/>}></Route>
+        <Route path="/deheedeham" element={<Deheedeham/>} />
 
       </Routes>
     </Router>
