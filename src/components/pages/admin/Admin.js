@@ -44,6 +44,7 @@ function Admin() {
       setMessage(response.data);
       setFiles(null);
       setIsUploading(false);
+      window.location.reload();
     } catch (error) {
       if (error.response) {
         setMessage('Error: ' + error.response.data);
