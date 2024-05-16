@@ -1,19 +1,19 @@
 const fs = require('fs');
-const Jimp = require('jimp');
+const sharp = require('sharp');
 const db = require('../db/connection');
 
 const getOrderID = (callback) => {
-    db.query('SELECT MAX(order_id) AS maxOrderId FROM images', (err, result) => {
-        if (err) {
-            callback(err);
-        } else {
-            const nextOrderId = result.length ? parseInt(result[0].maxOrderId) + 1 : 1;
-            const validOrderId = isNaN(nextOrderId) ? 1 : nextOrderId;
-            callback(null, validOrderId);
-        }
-    });
-};
-
+        db.query('SELECT MAX(order_id) AS maxOrderId FROM images', (err, result) => {
+            if (err) {
+                callback(err);
+            } else {
+                const nextOrderId = result.length ? parseInt(result[0].maxOrderId) + 1 : 1;
+                const validOrderId = isNaN(nextOrderId) ? 1 : nextOrderId;
+                callback(null, validOrderId);
+            }
+        });
+    };
+    
 exports.uploadImages = async (req, res, next) => {
     const files = req.files;
 
@@ -23,10 +23,9 @@ exports.uploadImages = async (req, res, next) => {
             const originalname = file.originalname;
             let imageBuffer = fs.readFileSync(file.path);
 
-            // Use Jimp for resizing
-            const image = await Jimp.read(imageBuffer);
-            await image.resize(800, 800).quality(80);
-            imageBuffer = await image.getBufferAsync(Jimp.MIME_JPEG);
+            imageBuffer = await sharp(imageBuffer)
+                .resize({ fit: 'inside', width: 800, height: 800 })
+                .toBuffer();
 
             getOrderID((err, orderID) => {
                 if (err) {

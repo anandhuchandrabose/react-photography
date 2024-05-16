@@ -24,7 +24,7 @@ function App() {
         {/* <Route path="/gallery" element={<Splash />} /> */}
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/" element={<ComingSoon />} />
-        <Route path="/home/ragooty/MA3XAM" element={<Home />} />
+        <Route path="/home/ragooty" element={<Home />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/image" element={<ImageGallery />} />
         <Route path="/Gallery" element={<Gallery />} />
