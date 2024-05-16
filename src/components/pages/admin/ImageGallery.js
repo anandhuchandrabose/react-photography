@@ -21,6 +21,10 @@ function Image() {
 
   const handleDelete = async function (order_id) {
     try {
+      const confirmed = window.confirm('Are you sure you want to delete the images?'); 
+    if (!confirmed) {
+      return;
+    }
       await axios.delete(`${DELETE_IMAGE_BY_ID}/${order_id}`);
       fetchImages();
     } catch (error) {
