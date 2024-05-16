@@ -43,12 +43,12 @@ const Deheedeham = () => {
                     <div className="par text-center px-1 container-fluid" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}>
                         <p>The mind and body is known to coexist and respond mutually, body being the perishable physical vessel for the soul to experience the world. These photographs are visual representation of body being the equally expressive medium of one's life, just like the soul.</p>
                     </div>
-                    <div className="text-center mt-1">
-                    <a href="https://in.bookmyshow.com/events/deheedeham-photography-exhibition-by-ragooty/ET00396777" target="_blank" rel="noopener noreferrer" >
-                        <img src="./bookmyshow.png" alt="BookMyShow" className="img-fluid" style={{ width: '100px' }} />
-                        <p className="text-dark">BOOK TICKETS</p>
-                    </a>
- 
+                    <div className="text-center d-flex align-center justify-content-center mt-1">
+                        <a href="https://in.bookmyshow.com/events/deheedeham-photography-exhibition-by-ragooty/ET00396777" target="_blank" rel="noopener noreferrer" className="text-center" >
+                            <img src="./bookmyshow.png" alt="BookMyShow" className="img-fluid" style={{ width: '100px' }} />
+                            <p className="text-dark">BOOK TICKETS</p>
+                        </a>
+
                     </div>
                 </div>
             </div>
