@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { DELETE_IMAGE_BY_ID, GET_ALL_IMAGE, GET_IMAGES_BY_CATEGORY, GET_IMAGE_BY_ID } from '../../../configuration/config';
+import { DELETE_IMAGE_BY_ID, GET_ALL_IMAGE, GET_IMAGE_BY_ID } from '../../../configuration/config';
 
 function Image() {
   const [images, setImages] = useState([]);
@@ -21,6 +21,10 @@ function Image() {
 
   const handleDelete = async function (order_id) {
     try {
+      const confirmed = window.confirm('Are you sure you want to delete the images?'); 
+    if (!confirmed) {
+      return;
+    }
       await axios.delete(`${DELETE_IMAGE_BY_ID}/${order_id}`);
       fetchImages();
     } catch (error) {

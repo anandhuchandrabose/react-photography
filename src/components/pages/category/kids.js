@@ -10,7 +10,7 @@ import "../../dist/Gallery.css";
 import NavBar from "../../NavBar";
 
 
-function Travel() {
+function Kids() {
     const onInit = () => {
         console.log('lightGallery has been initialized');
     };
@@ -23,7 +23,7 @@ function Travel() {
 
     const fetchImages = async () => {
         try {
-            const response = await axios.get(`${GET_IMAGES_BY_CATEGORY}/Travel`);
+            const response = await axios.get(`${GET_IMAGES_BY_CATEGORY}/kids`);
             setImages(response.data);
 
         } catch (error) {
@@ -38,7 +38,7 @@ function Travel() {
             <div className="App">
                 <NavBar />
                 <header>
-                    <h1 className="text-center pt-3">Travel</h1>
+                    <h1 className="text-center pt-3">Kids</h1>
                 </header>
                 <LightGallery
                     onInit={onInit}
@@ -59,4 +59,4 @@ function Travel() {
     );
 }
 
-export default Travel;
+export default Kids;

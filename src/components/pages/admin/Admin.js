@@ -19,10 +19,20 @@ function Admin() {
     setCategory(event.target.value);
   };
 
+  const MAX_TOTAL_FILE_SIZE_MB = 50;
+
   const handleFormSubmit = async function (event) {
     event.preventDefault();
     const confirmed = window.confirm('Are you sure you want to upload the images?'); 
     if (!confirmed) {
+      return;
+    }
+
+    // Check total file size
+    const totalFileSize = Array.from(files).reduce((total, file) => total + file.size, 0);
+    const totalFileSizeMB = totalFileSize / (1024 * 1024);
+    if (totalFileSizeMB > MAX_TOTAL_FILE_SIZE_MB) {
+      setMessage(`Total file size exceeds ${MAX_TOTAL_FILE_SIZE_MB}MB.`);
       return;
     }
 
@@ -44,6 +54,7 @@ function Admin() {
       setMessage(response.data);
       setFiles(null);
       setIsUploading(false);
+      window.location.reload();
     } catch (error) {
       if (error.response) {
         setMessage('Error: ' + error.response.data);
@@ -55,6 +66,7 @@ function Admin() {
       setIsUploading(false);
     }
   };
+
 
   return (
     <>
@@ -81,7 +93,8 @@ function Admin() {
                 <option value="home">Home</option>
                 <option value="fineart">Fine Art</option>
                 <option value="lifeonstreets">Life on Streets</option>
-                <option value="commercial">Commercial</option>
+                <option value="commercial">Commercial and Food</option>
+                <option value="kids">Kids</option>
                 <option value="travel">Travel</option>
               </select>
             </div>

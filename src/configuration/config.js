@@ -1,7 +1,4 @@
-// export const BASE_URL = "http://127.0.0.1:3001";
-
-//PRODUCTION
-export const BASE_URL = "https://13.126.175.8:3001";
+export const BASE_URL = "https://ragootybackend.com";
 
 // Image GET endpoints
 export const GET_IMAGES_BY_CATEGORY = BASE_URL + "/getImages/getImageCategory";
