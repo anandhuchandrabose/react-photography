@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const getImageRoutes = require('./routes/getImageRouter');
 const uploadImageRoutes = require('./routes/uploadImageRouter');
 const deleteImageRoutes = require('./routes/deleteImageRouter');
@@ -8,15 +7,9 @@ const apiCheckRouter = require('./routes/apiRoute');
 
 const app = express();
 
-// Enable CORS for specific domain
-const corsOptions = {
-  origin: 'https://storiesofragooty.com' // Allow requests from this domain
-};
-app.use(cors(corsOptions));
+// Enable CORS for all requests
+app.use(cors());
 
-// Increase payload size limit
-app.use(bodyParser.json({ limit: '500mb' }));
-app.use(bodyParser.urlencoded({ limit: '500mb', extended: true }));
 // Middleware to parse JSON bodies
 app.use(express.json());
 
