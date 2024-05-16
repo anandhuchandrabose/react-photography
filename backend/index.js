@@ -8,13 +8,10 @@ const apiCheckRouter = require('./routes/apiRoute');
 
 const app = express();
 
-// Enable CORS for all requests
-app.use(cors());
+// Enable CORS for specific domain
 const corsOptions = {
   origin: 'https://storiesofragooty.com' // Allow requests from this domain
 };
-
-// Enable CORS for specific domain
 app.use(cors(corsOptions));
 
 // Increase payload size limit
