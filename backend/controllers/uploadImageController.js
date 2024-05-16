@@ -24,8 +24,9 @@ exports.uploadImages = async (req, res, next) => {
             let imageBuffer = fs.readFileSync(file.path);
 
             imageBuffer = await sharp(imageBuffer)
-                .resize({ fit: 'inside', width: 800, height: 800 })
-                .toBuffer();
+            .resize({ fit: 'inside', width: 800, height: 800 })
+            .jpeg({ quality: 80 }) 
+            .toBuffer();
 
             getOrderID((err, orderID) => {
                 if (err) {

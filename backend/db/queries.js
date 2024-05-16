@@ -7,7 +7,7 @@ const createImagesTableQuery = `
         name VARCHAR(255) NOT NULL,
         category ENUM('home', 'fineart', 'lifeonstreets', 'commercial', 'travel') NOT NULL,
         order_id INT UNIQUE,
-        image MEDIUMBLOB NOT NULL
+        image LONGBLOB NOT NULL
     )
 `;
 
