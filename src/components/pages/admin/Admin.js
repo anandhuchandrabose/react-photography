@@ -81,7 +81,8 @@ function Admin() {
                 <option value="home">Home</option>
                 <option value="fineart">Fine Art</option>
                 <option value="lifeonstreets">Life on Streets</option>
-                <option value="commercial">Commercial</option>
+                <option value="commercial">Commercial and Food</option>
+                <option value="kids">Kids</option>
                 <option value="travel">Travel</option>
               </select>
             </div>
