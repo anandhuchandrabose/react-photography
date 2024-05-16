@@ -31,6 +31,7 @@ function Gallery() {
             const travelResponse = await axios.get(`${GET_IMAGES_BY_CATEGORY}/travel`);
             const commercialResponse = await axios.get(`${GET_IMAGES_BY_CATEGORY}/commercial`);
             const lifeOnStreetsResponse = await axios.get(`${GET_IMAGES_BY_CATEGORY}/lifeonstreets`);
+            const kidsResponse = await axios.get(`${GET_IMAGES_BY_CATEGORY}/kids`)
 
             const fineArtImages = fineArtResponse.data.map(image => ({
                 ...image,
@@ -48,8 +49,12 @@ function Gallery() {
                 ...image,
                 category: 'lifeonstreets'
             }));
+            const kidsImages = kidsResponse.data.map(image => ({
+                ...image,
+                category: 'kids'
+            }));
 
-            const allImages = [...fineArtImages, ...travelImages, ...commercialImages, ...lifeOnStreetsImages];
+            const allImages = [...fineArtImages, ...travelImages, ...commercialImages, ...lifeOnStreetsImages, ...kidsImages];
             setImages(allImages);
         } catch (error) {
             console.error("Error fetching images:", error);
@@ -57,17 +62,17 @@ function Gallery() {
     };
 
     const renderImagesByCategory = (category) => {
-        const maxImagesToShow = 6; // Change this number to limit the number of images shown for each category
+        const maxImagesToShow = 0; // Change this number to limit the number of images shown for each category
         const categoryImages = images.filter(image => image.category === category).slice(0, maxImagesToShow);
         const handleClick = (category) => {
             console.log(`Clicked on ${category}`);
             // Perform any other actions with the category here
         };
-        
+
         return (
-            <a href={`/${category}`} onClick={() => handleClick(category)} style={{ textDecoration: 'none', color:"black" }}>
-                <div className="category-container pt-5">
-                   <h2 className="text-center">{category.toUpperCase()}</h2>
+            <a href={`/${category}`} onClick={() => handleClick(category)} style={{ textDecoration: 'none', color: "black" }}>
+                <div className="category-container pt-5" style={{ height: "10vh" }}>
+                    <h2 className="text-center">{category.toUpperCase()}</h2>
                     <div className="gallery-container">
                         <LightGallery
                             onInit={onInit}
@@ -90,7 +95,7 @@ function Gallery() {
                     </div>
                 </div>
             </a>
-        );        
+        );
     };
 
     return (
@@ -104,8 +109,9 @@ function Gallery() {
                 {renderImagesByCategory('travel')}
                 {renderImagesByCategory('commercial')}
                 {renderImagesByCategory('lifeonstreets')}
+                {renderImagesByCategory('kids')}
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 }

@@ -37,9 +37,9 @@ function Commercial() {
 
             <div className="App">
                 <NavBar />
-                {/* <header>
-                    <h1 className="text-center pt-3">stories of ragooty</h1>
-                </header> */}
+                <header>
+                    <h1 className="text-center pt-3">Commercial</h1>
+                </header>
                 <LightGallery
                     onInit={onInit}
                     speed={500}

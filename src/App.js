@@ -14,6 +14,7 @@ import Commercial from './components/pages/category/Commercial';
 import FineArt from './components/pages/category/FineArt';
 import Deheedeham from './LinkTree/Deheedeham';
 import ComingSoon from './test/comingsoon';
+import Kids from './components/pages/category/kids';
 
 
 function App() {
@@ -28,11 +29,12 @@ function App() {
         <Route path="/image" element={<ImageGallery />} />
         <Route path="/Gallery" element={<Gallery />} />
         <Route path="/contact" element={<LinkTree />} />
-        <Route path='/Travel' element={<Travel/>}></Route>
-        <Route path='/LifeOnStreets' element={<LifeOnStreets/>}></Route>
-        <Route path='/Commercial' element={<Commercial/>}></Route>
-        <Route path='/FineArt' element={<FineArt/>}></Route>
-        <Route path="/deheedeham" element={<Deheedeham/>} />
+        <Route path='/Travel' element={<Travel />}></Route>
+        <Route path='/LifeOnStreets' element={<LifeOnStreets />}></Route>
+        <Route path='/Commercial' element={<Commercial />}></Route>
+        <Route path='/FineArt' element={<FineArt />}></Route>
+        <Route path='/Kids' element={<Kids />}></Route>
+        <Route path="/deheedeham" element={<Deheedeham />} />
 
       </Routes>
     </Router>

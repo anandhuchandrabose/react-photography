@@ -59,8 +59,8 @@ function Home() {
                     </LightGallery>
                 </a>
             </div>
-            <Footer/>
-                    </>
+            <Footer />
+        </>
     );
 }
 
