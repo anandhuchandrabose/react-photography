@@ -93,7 +93,7 @@ const LinkTree = () => {
                         <button class="btn btn-light" type="button">website</button>
                     </div> */}
 
-                    <a href="https://www.storiesofragooty.com/">
+                    <a href="https://www.storiesofragooty.com/home/ragooty">
                         <button className='button1 mt-3'>website</button>
                     </a>
                     {/* <a href="https://wa.me/916238248775">
