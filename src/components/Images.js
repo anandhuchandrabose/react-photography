@@ -10,7 +10,7 @@ function Images(props) {
     };
 
     return (
-        <div className="Images-container p-lg-4">
+        <div className="Images-container p-lg-6">
             {data.map((image) => (
                 <div
                     onClick={() => handleClickImage(image.id)}
