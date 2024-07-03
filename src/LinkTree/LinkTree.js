@@ -17,16 +17,16 @@ const ExpandingCard = ({ expanded }) => {
         //     </div>
         // </div>
         <a href='/deheedeham'>
-            <div class=" usa-grid">
+            {/* <div class=" usa-grid">
                 <h1 id="cheese">NEW EVENT</h1>
-                {/* <h1 class="title">Grace Hopper Day</h1> */}
+                
                 <h5 class="title text-center" id='h55' style={{ opacity: expanded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}>Deheedeham</h5>
-                {/* <h1 class="title" id="sauce">Hackathon</h1> */}
+               
                 <p className="title text-center" id="sauce" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>when life becomes its own body</p>
                 <p className="title text-center" id="sauce1" style={{ opacity: expanded ? 1 : 0, transition: 'opacity 1.3s ease-in-out' }}>Photography Exhibition,Kochi. know More</p>
 
-                {/* <h1 id="cheese1">Know More</h1> */}
-            </div>
+               
+            </div> */}
         </a>
     );
 }

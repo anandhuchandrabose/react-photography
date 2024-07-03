@@ -7,6 +7,12 @@ body {
     column-count: 3;
     column-gap: 10px;
 
+} 
+
+@media (max-width: 768px) {
+    .lg-react-element {
+        column-count: 1;
+    }
 }
 
 img {
@@ -14,14 +20,15 @@ img {
     display: block;
     padding: 5px 0px;
     border-radius: 2px;
-    -webkit-user-drag: none;
+    /* -webkit-user-drag: none; */
 }
 
-img {
+/* img {
     filter: opacity(.9);
     transform: scale(1.01);
-}
+} */
 
-.lg-react-element {
+/* .lg-react-element {
     pointer-events: none;
-}
+} */
+
