@@ -5,8 +5,13 @@ const NavBar = ({ openGalleryDropdown }) => {
     const dropdownRef = useRef(null);
 
     useEffect(() => {
+        if (window.innerWidth <= 768 && dropdownRef.current) {
+            dropdownRef.current.classList.add('show'); // Keep dropdown open on mobile
+            dropdownRef.current.setAttribute('aria-expanded', 'true');
+        }
+
         if (openGalleryDropdown && dropdownRef.current) {
-            dropdownRef.current.click(); 
+            dropdownRef.current.click();
         }
     }, [openGalleryDropdown]);
 
@@ -36,7 +41,7 @@ const NavBar = ({ openGalleryDropdown }) => {
                                             data-bs-toggle="dropdown"
                                             aria-expanded="false"
                                             style={{ color: 'black' }}
-                                            ref={dropdownRef} // Reference to trigger dropdown open
+                                            ref={dropdownRef}
                                         >
                                             Gallery
                                         </a>

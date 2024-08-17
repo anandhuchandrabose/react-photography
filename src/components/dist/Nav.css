@@ -1,121 +1,124 @@
 @import url('https://fonts.googleapis.com/css2?family=Quando&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Quando&display=swap');
 
-/* .small-img {
-    width: 50px;
- 
-    height: 50px;
-
-} */
-
-
 .hd1 {
     font-family: "Quando", serif;
     font-weight: 400;
     font-style: normal;
     font-size: 40px;
     margin-bottom: 0;
-
 }
-
 
 .navbar {
     padding: 10px;
     font-family: "Quando", serif;
     font-weight: 500;
     font-style: normal;
-
+    background-color: #ffffff; /* Added a background color to navbar */
+    border-bottom: 1px solid #ddd; /* Add a subtle bottom border */
 }
 
 .navlinks {
+    padding-top: 10px;
+    font-size: 17px;
     color: black !important;
+    text-decoration: none;
 }
 
-.navlinks :hover {
+.navlinks:hover {
     text-decoration: underline !important;
+    color: #555; /* Slightly darker color on hover */
 }
-
 
 .navbar-link {
     text-decoration: none;
     color: white;
-
 }
 
 .navbar-link:hover {
     text-decoration: underline !important;
 }
 
-.navlinks {
-    font-size: 17px;
-
-}
-
 @media (max-width: 768px) {
-
     .navbar-toggler {
         display: block;
+        border: none; /* Remove border */
+        background-color: white;
     }
 
     .navbar-collapse {
         display: none;
     }
 
-    /* .navbar-expand-lg .navbar-nav .nav-link {
-        color: black;
-        margin-bottom: 10px;
-    } */
-
-    /* .offcanvas {
-        display: block !important;
-        flex-direction: column;
-        height: 100vh;
-        top: 0;
-        left: 0;
-    } */
-
     .offcanvas {
-        background-color: white;
-        /* Set the background color to white */
-        color: black;
-        /* Set the text color to black (optional) */
+        background-color: white; /* Set the background color to white */
+        color: black; /* Set the text color to black */
     }
 
-
     .offcanvas-header {
-        background-color: #333;
+        background-color: #333; /* Dark background for header */
     }
 
     .offcanvas-body {
-        /* padding: 15px; */
-        background-color: #f5f5f5;
-        color: white;
+        background-color: #f5f5f5; /* Light gray background for offcanvas body */
+        color: black; /* Ensure text is visible */
     }
 
     .navbar-nav {
-        width: 100%;
+        width: 100%; /* Ensure navbar takes full width */
     }
-
 
     .hd1 {
         font-size: 1.03em !important;
     }
 
-
     .navbar-toggler-icon {
-        background-color: white;
+        background-color: white; /* Ensure the icon is visible */
     }
+}
 
-    /* .navlinks {
-        display: flex;
-        flex-direction: column;
-    } */
-
-    @media (max-width: 767px) {
-        .navbar-toggler {
-            border: none;
-            /* Remove border */
-        }
+/* Nested media query for further smaller screens */
+@media (max-width: 767px) {
+    .navbar-toggler {
+        border: none; /* Remove border for smaller screens */
     }
+}
+/* General dropdown styles */
+.dropdown-menu {
+    background-color: #f8f9fa; /* Light gray background */
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    padding: 10px 0;
+    min-width: 250px;
+    font-size: 18px;
+    display: none; /* Default state: hidden */
+}
 
+/* Dropdown item styles */
+.dropdown-item {
+    padding: 12px 20px;
+    color: #333;
+    font-size: 18px;
+}
+
+.dropdown-item:hover {
+    background-color: #e9ecef;
+    color: #000;
+}
+
+/* Mobile screen styles */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        display: block !important; /* Show dropdown on mobile screens */
+        position: static;
+        box-shadow: none;
+    }
+}
+
+/* Larger screens */
+@media (min-width: 769px) {
+    .dropdown-menu {
+        display: none; /* Hide dropdown on larger screens unless triggered */
+    }
 }

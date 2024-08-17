@@ -83,7 +83,7 @@ const Gallery = () => {
                     {['fineart', 'travel', 'commercial', 'lifeonstreets', 'kids'].map(renderImagesByCategory)}
                 </div>
             )}
-            {/* <Footer /> */}
+            <Footer />
         </div>
     );
 }

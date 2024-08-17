@@ -17,6 +17,11 @@ function Home() {
 
     useEffect(() => {
         fetchImages();
+
+        // Disable right-click across the entire page
+        document.addEventListener("contextmenu", (event) => {
+            event.preventDefault();
+        });
     }, []);
 
     const fetchImages = async () => {
@@ -37,9 +42,10 @@ function Home() {
                 <LightGallery
                     onInit={() => console.log('lightGallery has been initialized')}
                     speed={500}
+                    download={false} // Disable the download button
+                    addClass='no-desc' // Custom class to hide description if needed
                 >
                     {loading ? (
-                        // Display a grid of skeletons that matches your image grid layout
                         <div className="skeleton-grid">
                             {Array.from({ length: 8 }).map((_, index) => (
                                 <div key={index} className="skeleton-item">
@@ -52,9 +58,9 @@ function Home() {
                             <a key={image.id} href={`${GET_IMAGE_BY_ID}/${image.id}`}>
                                 <img
                                     src={`${GET_IMAGE_BY_ID}/${image.id}`}
-                                    alt={`Gallery image: ${image.name}`}
                                     className="gallery-image"
                                     loading="lazy"
+                                    // alt={`Gallery image: ${image.name}`} // Omit the alt attribute to hide description
                                 />
                             </a>
                         ))

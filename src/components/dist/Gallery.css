@@ -80,4 +80,28 @@
  }
 
 
- 
+ /* Disable right-click on images */
+.gallery-image {
+    pointer-events: none;
+    user-drag: none;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    filter: blur(0); /* Ensures no visual change */
+}
+
+/* Prevent image dragging */
+.gallery-image {
+    -webkit-touch-callout: none; /* Prevent callout to copy image, etc when tap to hold */
+    -webkit-user-select: none;   /* Disable selection/copy in UIWebView */
+    -moz-user-select: none;      /* Disable selection/copy in Firefox */
+    -ms-user-select: none;       /* Disable selection/copy in IE */
+    user-select: none;           /* Non-prefixed version, currently supported by Chrome and Opera */
+    pointer-events: none;        /* Disable click events */
+}
+
