@@ -8,10 +8,7 @@
 
 .container-footer1 {
     width: 100%;
-    /* max-width: 960px; */
-    /* margin: 0 auto; */
     margin-top: auto;
-    /* padding-top: 68% !important; */
     display: flex;
     justify-content: center;
 
@@ -113,17 +110,6 @@
     white-space: nowrap;
     font-family: "Poppins", sans-serif;
 }
-
-
-/* .copyright {
-    position: absolute;
-    top: 97%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: small;
-    font-family: "Montserrat", sans-serif;
-    opacity: 50%;
-} */
 
 @-moz-keyframes shine {
     0% {
