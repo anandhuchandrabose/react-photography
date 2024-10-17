@@ -11,14 +11,12 @@ import "../dist/Gallery.css";
 import NavBar from "../NavBar";
 import Footer from "../Footer";
 
-function Home() {
+function Commercials() {
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetchImages();
-
-        // Disable right-click across the entire page
         document.addEventListener("contextmenu", (event) => {
             event.preventDefault();
         });
@@ -26,7 +24,7 @@ function Home() {
 
     const fetchImages = async () => {
         try {
-            const response = await axios.get(`${GET_IMAGES_BY_CATEGORY}/home`);
+            const response = await axios.get(`${GET_IMAGES_BY_CATEGORY}/commercial`);
             setImages(response.data);
             setLoading(false);
         } catch (error) {
@@ -42,8 +40,8 @@ function Home() {
                 <LightGallery
                     onInit={() => console.log('lightGallery has been initialized')}
                     speed={500}
-                    download={false} 
-                    addClass='no-desc' 
+                    download={false}
+                    addClass='no-desc'
                 >
                     {loading ? (
                         <div className="skeleton-grid">
@@ -60,7 +58,7 @@ function Home() {
                                     src={`${GET_IMAGE_BY_ID}/${image.id}`}
                                     className="gallery-image"
                                     loading="lazy"
-                                    // alt={`Gallery image: ${image.name}`} // Omit the alt attribute to hide description
+                                     draggable="false"
                                 />
                             </a>
                         ))
@@ -72,4 +70,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Commercials;

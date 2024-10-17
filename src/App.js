@@ -8,13 +8,13 @@ import Admin from './components/pages/admin/Admin';
 import ImageGallery from './components/pages/admin/ImageGallery';
 import Home from './components/pages/home';
 import LinkTree from './LinkTree/LinkTree';
-import Travel from './components/pages/category/Travel';
-import LifeOnStreets from './components/pages/category/LifeOnStreets';
-import Commercial from './components/pages/category/Commercial';
-import FineArt from './components/pages/category/FineArt';
+import Travel from './components/pages/Travel';
+import LifeOnStreets from './components/pages/LifeOnStreets';
+import Commercial from './components/pages/Commercial';
+import FineArt from './components/pages/FineArt';
 import Deheedeham from './LinkTree/Deheedeham';
 import ComingSoon from './test/comingsoon';
-import Kids from './components/pages/category/kids';
+import Kids from './components/pages/Kids';
 
 
 function App() {
